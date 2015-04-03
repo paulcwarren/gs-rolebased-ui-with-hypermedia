@@ -1,0 +1,31 @@
+<table class="table">
+
+	<tr>
+		<th>Username</th>
+		<th>Roles</th>
+		<th></th>
+		<th></th>
+	</tr>
+	<tr ng-show="resource.$has('create')">
+		<td><input type="text" placeholder="Enter username" ng-model="newUser.username"></td>
+		<td>
+			<div class="checkbox">
+				<label ng-repeat="role in roles">&nbsp;
+					<input
+						type="checkbox" name="selectedRoles[]" value="{{role}}"
+						ng-checked="newUser.roles.indexOf(role) > -1"
+						ng-click="toggleSelection(role, newUser)">{{role}} 
+				</label>
+			</div>
+		</td>
+		<td><button class="btn" ng-click="onClickAdd(newUser)">Add</button></td>
+		<td></td>
+	</tr>
+	<tr ng-repeat="user in users">
+		<td>{{user.username}}</td>
+		<td>{{user.roles}}</td>
+		<td><button class="btn" ng-disabled="!user.$has('delete')" ng-click="onClickRemove(user)">Remove</button></td>
+		<td><button class="btn" ng-disabled="!user.$has('password')" ng-click="onClickSetPassword(user)">Set Password</button></td>
+	</tr>
+
+</table>

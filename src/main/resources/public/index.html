@@ -1,0 +1,33 @@
+<!doctype html>
+<html ng-app="gsRoleBasedUI">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>gs-rolebased-ui-with-hypermedia</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    </head>
+    <body ng-contoller="appController">
+
+		<div ng-controller="loginController" class="container">
+			<ul class="nav nav-pills" role="tablist">
+				<li ng-class="{active:tab('home')}"><a href="#/">home</a></li>
+				<li ng-show="!authenticated"><a href="#/login">login</a></li>
+				<li ng-show="authenticated"><a href="" ng-click="logout()">logout</a></li>
+			</ul>
+		</div>
+		<div ng-view class="container"></div>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-route.min.js"></script>
+		<script src="/js/angular-hal/angular-hal-0.1.5.js"></script>
+		
+		<script src="/js/app/app.js"></script>
+		<script src="/js/users/users.js"></script>
+		<script src="/js/login/login.js"></script>
+		
+	</body>
+</html>
